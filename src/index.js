@@ -12,15 +12,11 @@ app.use(morgan("dev"));
 app.use(express.urlencoded({extended: false}))
 app.use(express.json());
 
+//rutas
 
-app.get("/", (req,res)=>{
-   res.json({
-       title: "Api Inicilizada",
-       version: "1.0.0"
-   });
-});
-
+app.use('/api/encuestas',require('./routes/encuestas'));
 
 app.listen(app.get('port'), ()=>{
     console.log(`Servidor en el puerto ${app.get('port')}`);
+    console.log(__dirname);
 });
