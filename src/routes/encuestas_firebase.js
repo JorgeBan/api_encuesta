@@ -16,7 +16,6 @@ const dbRef = admin.database().ref();
 router.get("/", async (req, res)=>{
     dbRef.child("ModeloEncuesta").get().then((snapshot) => {
         if (snapshot.exists()) {
-            console.log(snapshot.val());
             res.status(200).json(snapshot.val());
         } else {
             res.status(404).json({
